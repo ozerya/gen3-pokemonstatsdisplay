@@ -1,16 +1,16 @@
-versions = {"POKEMON RUBY",
-            "POKEMON SAPP",
-            "POKEMON FIRE",
-            "POKEMON LEAF",
-            "POKEMON EMER"}
+versions = {"Pokemon Ruby",
+            "Pokemon Sapphire",
+            "Pokemon FireRed",
+            "Pokemon LeafGreen",
+            "Pokemon Emerald"}
 
 languages = {"Unknown",
-			 "Deutsch",
+	     "Deutsch",
              "French",
-			 "Italian",
-			 "Spanish",
-			 "English",
-			 "Japanese"}
+	     "Italian",
+	     "Spanish",
+	     "English",
+	     "Japanese"}
 			 
 function checkversion(version)
 	for i,v in pairs(versions) do
@@ -540,7 +540,7 @@ function fn()
  gui.text(xfix2+0, yfix2+30,"Item : "..holditemname, "yellow")
 	end
  
- gui.text(xfix2+85, yfix2+20,"Pokerus"..pokerus)
+ gui.text(xfix2+85, yfix2+20,"Pokerus: "..pokerus)
 
 --gui.text(xfix2, yfix2+70, "Pokerus remain "..mbyte(start+85))
  
