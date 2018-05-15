@@ -1,16 +1,16 @@
-versions = {"Pokemon Ruby",
-            "Pokemon Sapphire",
-            "Pokemon FireRed",
-            "Pokemon LeafGreen",
-            "Pokemon Emerald"}
+versions = {"POKEMON RUBY",
+            "POKEMON SAPP",
+            "POKEMON FIRE",
+            "POKEMON LEAF",
+            "POKEMON EMER"}
 
 languages = {"Unknown",
-	     "Deutsch",
+			 "Deutsch",
              "French",
-	     "Italian",
-	     "Spanish",
-	     "English",
-	     "Japanese"}
+			 "Italian",
+			 "Spanish",
+			 "English",
+			 "Japanese"}
 			 
 function checkversion(version)
 	for i,v in pairs(versions) do
