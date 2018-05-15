@@ -173,6 +173,26 @@ movetbl={   "Pound", "Karate Chop", "DoubleSlap", "Comet Punch", "Mega Punch", "
 			"Water Sport", "Calm Mind", "Leaf Blade", "Dragon Dance", "Rock Blast",
 			"Shock Wave", "Water Pulse", "Doom Desire", "Psycho Boost"}
 
+--Color list
+
+colortbl={   "nor", "fig", "nor", "nor", "nor", "nor", "fire", "ice", "ele", "nor", "nor", "nor", "nor", "nor", "nor", "fly", "fly", "nor", "fly",
+	"nor", "nor", "gra", "nor", "fig", "nor", "fig", "fig", "gro", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "poi", "bug",
+	"bug", "nor", "dar", "nor", "nor", "nor", "nor", "nor", "nor", "poi", "fire", "fire", "ice", "wat", "wat", "wat", "ice", "ice", "psy", "wat", "ice", "nor",
+	"fly", "fly", "fig", "fig", "fig", "fig", "nor", "gra", "gra", "gra", "nor", "gra", "gra", "poi", "gra", "gra", "gra", "bug", "dra", "fire", "ele", "ele",
+	"ele", "ele", "roc", "gro", "gro", "gro", "poi", "psy", "psy", "psy", "psy", "psy", "nor", "nor", "psy", "gho", "nor", "nor", "nor", "nor", "nor", "nor", "nor",
+	"gho", "wat", "nor", "psy", "psy", "ice", "psy", "nor", "nor", "nor", "fly", "nor", "nor", "gho", "poi", "poi", "gro", "fire", "wat", "wat", "nor", "nor", "nor",
+	"nor", "psy", "psy", "nor", "fig", "nor", "psy", "poi", "nor", "bug", "nor", "fly", "nor", "wat", "nor", "gra", "nor", "psy", "nor", "poi", "wat", "nor", "nor",
+	"gro", "psy", "roc", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "fig", "dar", "bug", "nor", "gho", "fire", "nor", "gho", "nor", "nor", "fly",
+	"gra", "fig", "gho", "ice", "nor", "fig", "nor", "dar", "nor", "nor", "poi", "gro", "wat", "gro", "ele", "nor", "gho", "nor", "ice", "fig", "gro", "nor", "dra",
+	"roc", "gra", "nor", "nor", "roc", "nor", "nor", "nor", "ele", "bug", "ste", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "fire", "gro", "fig",
+	"bug", "dra", "nor", "nor", "dar", "nor", "nor", "ste", "ste", "fig", "nor", "gra", "nor", "nor", "fig", "dra", "wat", "fire", "dar", "psy", "nor", "nor", "roc",
+	"gho", "psy", "fig", "wat", "dar", "nor", "nor", "nor", "nor", "nor", "fire", "ice", "dar", "dar", "fire", "dar", "nor", "fig", "nor", "nor", "nor", "ele", "dar",
+	"nor", "psy", "psy", "nor", "nor", "gra", "fig", "psy", "nor", "fig", "fig", "nor", "dar", "nor", "fire", "psy", "psy", "nor", "gho", "dar", "nor", "wat", "fig",
+	"nor", "bug", "psy", "psy", "fly", "nor", "fire", "gro", "ice", "gra", "nor", "nor", "poi", "nor", "fire", "wat", "ste", "gho", "nor", "gra", "dar", "fly", "fire",
+	"nor", "roc", "bug", "ste", "gra", "nor", "psy", "wat", "bug", "gho", "psy", "fig", "gro", "ice", "wat", "gra", "fly", "ice", "ste", "nor", "nor", "dra", "gra", "fig",
+	"fly", "gro", "poi", "nor", "ele", "gra", "wat", "psy", "gra", "dra", "roc", "ele", "wat", "ste", "psy"}
+
+
 --Item list
 
 itemtbl={   "Master Ball","Ultra Ball", "Great Ball", "Poké Ball", "Safari Ball", "Net Ball", "Dive Ball", 
