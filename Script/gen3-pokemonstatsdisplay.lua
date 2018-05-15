@@ -149,8 +149,8 @@ local gamename={"Ruby/Sapphire U", "Emerald U", "FireRed/LeafGreen U", "Ruby/Sap
 --game dependent
 
 local pstats={0x3004360, 0x20244EC, 0x2024284, 0x3004290, 0x2024190, 0x20241E4, 0x3004370}
-local estats={0x30045C0, 0x2024744, 0x202402C, 0x30044F0, 0x0000000, 0x2023F8C, 0x30045D0}
-local rng   ={0x3004818, 0x3005D80, 0x3005000, 0x3004748, 0x0000000, 0x3005040, 0} --0X3004FA0
+local estats={0x30045C0, 0x2024744, 0x202402C, 0x30044F0, 0x20243E8, 0x2023F8C, 0x30045D0}
+local rng   ={0x3004818, 0x3005D80, 0x3005000, 0x3004748, 0x3005AE0, 0x3005040, 0} --0X3004FA0
 local rng2  ={0x0000000, 0x0000000, 0x20386D0, 0x0000000, 0x0000000, 0x203861C, 0}
 
 
@@ -170,7 +170,7 @@ local mdword=memory.readdwordunsigned
 local mword=memory.readwordunsigned
 local mbyte=memory.readbyteunsigned
 
-local natureorder={"Atk","Def","Spd","SpAtk","SpDef"}
+local natureorder={"Atk","Def","SpAtk","SpDef","Spd"}
 local naturename={
  "Hardy","Lonely","Brave","Adamant","Naughty",
  "Bold","Docile","Relaxed","Impish","Lax",
@@ -182,6 +182,24 @@ local typeorder={
  "Rock","Bug","Ghost","Steel",
  "Fire","Water","Grass","Electric",
  "Psychic","Ice","Dragon","Dark"}
+
+nor={168, 168, 120}
+fire={240, 128, 48}
+wat={104, 144, 240}
+gra={120, 200, 80}
+ele={248, 208, 48}
+ice={152, 216, 216}
+fig={192, 48, 40}
+poi={160, 64, 160}
+gro={224, 192, 104}
+fly={168, 144, 240}
+psy={248, 88, 136}
+bug={168, 184, 32}
+roc={184, 160, 56}
+gho={112, 88, 152}
+dra={112, 56, 1248}
+dar={112, 88, 72}
+ste={184, 184, 208}
 
 --a 32-bit, b bit position bottom, d size
 function getbits(a,b,d)
@@ -358,39 +376,61 @@ function fn()
      gui.text(xfix,yfix-24, "Player "..substatus[1].." ("..speciesname..")")
     end
 
-    gui.text(xfix,yfix+0,"HPT", "yellow")
-    gui.text(xfix,yfix+8,"ATK", "red")
-    gui.text(xfix,yfix+16,"DEF", "blue")
-    gui.text(xfix,yfix+24,"SPE", "green")
-    gui.text(xfix,yfix+32,"SAT", "magenta")
-    gui.text(xfix,yfix+40,"SDF", "cyan")
+    gui.text(xfix,yfix+0,"HP", "yellow")
+    gui.text(xfix,yfix+8,"Atk", "red")
+    gui.text(xfix,yfix+16,"Def", "blue")
+    gui.text(xfix,yfix+40,"Spe", "green")
+    gui.text(xfix,yfix+24,"SpA", "magenta")
+    gui.text(xfix,yfix+32,"SpD", "cyan")
 
     gui.text(xfix+20,yfix, mword(start+88), "yellow")
     gui.text(xfix+20,yfix+8, mword(start+90), "red")
     gui.text(xfix+20,yfix+16, mword(start+92), "blue")
-    gui.text(xfix+20,yfix+24, mword(start+94), "green")
-    gui.text(xfix+20,yfix+32, mword(start+96), "magenta")
-    gui.text(xfix+20,yfix+40, mword(start+98), "cyan")
+    gui.text(xfix+20,yfix+40, mword(start+94), "green")
+    gui.text(xfix+20,yfix+24, mword(start+96), "magenta")
+    gui.text(xfix+20,yfix+32, mword(start+98), "cyan")
 
     gui.text(xfix+35,yfix, hpiv, "yellow")
     gui.text(xfix+35,yfix+8, atkiv, "red")
     gui.text(xfix+35,yfix+16, defiv, "blue")
-    gui.text(xfix+35,yfix+24, spdiv, "green")
-    gui.text(xfix+35,yfix+32, spatkiv, "magenta")
-    gui.text(xfix+35,yfix+40, spdefiv, "cyan")
+    gui.text(xfix+35,yfix+40, spdiv, "green")
+    gui.text(xfix+35,yfix+24, spatkiv, "magenta")
+    gui.text(xfix+35,yfix+32, spdefiv, "cyan")
 
     gui.text(xfix+50,yfix, getbits(evs1, 0, 8), "yellow")
     gui.text(xfix+50,yfix+8, getbits(evs1, 8, 8), "red")
     gui.text(xfix+50,yfix+16, getbits(evs1, 16, 8), "blue")
-    gui.text(xfix+50,yfix+24, getbits(evs1, 24, 8), "green")
-    gui.text(xfix+50,yfix+32, getbits(evs2, 0, 8), "magenta")
-    gui.text(xfix+50,yfix+40, getbits(evs2, 8, 8), "cyan")
+    gui.text(xfix+50,yfix+40, getbits(evs1, 24, 8), "green")
+    gui.text(xfix+50,yfix+24, getbits(evs2, 0, 8), "magenta")
+    gui.text(xfix+50,yfix+32, getbits(evs2, 8, 8), "cyan")
 
-    if natinc~=natdec then
-     gui.text(xfix+65,yfix+8*(natinc+1), "+", statcolor[natinc+2])
-     gui.text(xfix+65,yfix+8*(natdec+1), "-", statcolor[natdec+2])
-    else
-     gui.text(xfix+65,yfix+8*(natinc+1), "+-", "grey")
+     if natinc < 2 and natdec < 2 then
+     gui.text(xfix+65,yfix+8*(natinc+1), "+ ", statcolor[natinc+2])
+     gui.text(xfix+65,yfix+8*(natdec+1), " -", statcolor[natdec+2])
+       	elseif natinc < 2 and natdec == 2 then
+     gui.text(xfix+65,yfix+8*(natinc+1), "+ ", statcolor[natinc+2])
+     gui.text(xfix+65,yfix+8*(natdec+3), " -", statcolor[natdec+2])
+ 	elseif natinc < 2 and natdec > 2 then
+     gui.text(xfix+65,yfix+8*(natinc+1), "+ ", statcolor[natinc+2])
+     gui.text(xfix+65,yfix+8*(natdec), " -", statcolor[natdec+2])
+	elseif natinc == 2 and natdec < 2 then
+     gui.text(xfix+65,yfix+8*(natinc+3), "+ ", statcolor[natinc+2])
+     gui.text(xfix+65,yfix+8*(natdec+1), " -", statcolor[natdec+2])
+ 	elseif natinc == 2 and natdec == 2 then
+     gui.text(xfix+65,yfix+8*(natinc+3), "+ ", statcolor[natinc+2])
+     gui.text(xfix+65,yfix+8*(natdec+3), " -", statcolor[natdec+2])
+ 	elseif natinc == 2 and natdec > 2 then
+     gui.text(xfix+65,yfix+8*(natinc+3), "+ ", statcolor[natinc+2])
+     gui.text(xfix+65,yfix+8*(natdec), " -", statcolor[natdec+2])
+	elseif natinc > 2 and natdec < 2 then
+     gui.text(xfix+65,yfix+8*(natinc), "+", statcolor[natinc+2])
+     gui.text(xfix+65,yfix+8*(natdec+1), " -", statcolor[natdec+2])
+ 	elseif natinc > 2 and natdec == 2 then
+     gui.text(xfix+65,yfix+8*(natinc), "+ ", statcolor[natinc+2])
+     gui.text(xfix+65,yfix+8*(natdec+3), " -", statcolor[natdec+2])
+	elseif natinc > 2 and natdec > 2 then
+     gui.text(xfix+65,yfix+8*(natinc), "+ ", statcolor[natinc+2])
+     gui.text(xfix+65,yfix+8*(natdec), " -", statcolor[natdec+2])
     end
  end --status 1 or 2
 
@@ -407,18 +447,102 @@ function fn()
  movename4=movetbl[move4]
  if movename4==nil then movename4="none" end
  
- gui.text(xfix2, yfix2, "1: "..movename1)
- gui.text(xfix2, yfix2+10, "2: "..movename2)
- gui.text(xfix2, yfix2+20, "3: "..movename3)
- gui.text(xfix2, yfix2+30, "4: "..movename4)
- gui.text(xfix2+65, yfix2, "PP: "..pp1)
- gui.text(xfix2+65, yfix2+10, "PP: "..pp2)
- gui.text(xfix2+65, yfix2+20, "PP: "..pp3)
- gui.text(xfix2+65, yfix2+30, "PP: "..pp4)
- gui.text(xfix2, yfix2+40,"Hidden Power: "..typeorder[hidpowtype+1].." "..hidpowbase)
- gui.text(xfix2, yfix2+50,"Hold Item "..holditem)
- gui.text(xfix2, yfix2+60,"Pokerus Status "..pokerus)
- gui.text(xfix2, yfix2+70, "Pokerus remain "..mbyte(start+85))
+ holditemname=itemtbl[holditem]
+ if holditemname==nil then holditemname="none" end
+
+ movecolor1=colortbl[move1]
+ if movecolor1=="nor" then movecolor1=nor end
+ if movecolor1=="fire" then movecolor1=fire end
+ if movecolor1=="wat" then movecolor1=wat end
+ if movecolor1=="gra" then movecolor1=gra end
+ if movecolor1=="ele" then movecolor1=ele end
+ if movecolor1=="ice" then movecolor1=ice end
+ if movecolor1=="fig" then movecolor1=fig end
+ if movecolor1=="poi" then movecolor1=poi end
+ if movecolor1=="gro" then movecolor1=gro end
+ if movecolor1=="fly" then movecolor1=fly end
+ if movecolor1=="psy" then movecolor1=psy end
+ if movecolor1=="bug" then movecolor1=bug end
+ if movecolor1=="roc" then movecolor1=roc end
+ if movecolor1=="gho" then movecolor1=gho end
+ if movecolor1=="dra" then movecolor1=dra end
+ if movecolor1=="dar" then movecolor1=dar end
+ if movecolor1=="ste" then movecolor1=ste end
+ movecolor2=colortbl[move2]
+ if movecolor2=="nor" then movecolor2=nor end
+ if movecolor2=="fire" then movecolor2=fire end
+ if movecolor2=="wat" then movecolor2=wat end
+ if movecolor2=="gra" then movecolor2=gra end
+ if movecolor2=="ele" then movecolor2=ele end
+ if movecolor2=="ice" then movecolor2=ice end
+ if movecolor2=="fig" then movecolor2=fig end
+ if movecolor2=="poi" then movecolor2=poi end
+ if movecolor2=="gro" then movecolor2=gro end
+ if movecolor2=="fly" then movecolor2=fly end
+ if movecolor2=="psy" then movecolor2=psy end
+ if movecolor2=="bug" then movecolor2=bug end
+ if movecolor2=="roc" then movecolor2=roc end
+ if movecolor2=="gho" then movecolor2=gho end
+ if movecolor2=="dra" then movecolor2=dra end
+ if movecolor2=="dar" then movecolor2=dar end
+ if movecolor2=="ste" then movecolor2=ste end
+ movecolor3=colortbl[move3]
+ if movecolor3=="nor" then movecolor3=nor end
+ if movecolor3=="fire" then movecolor3=fire end
+ if movecolor3=="wat" then movecolor3=wat end
+ if movecolor3=="gra" then movecolor3=gra end
+ if movecolor3=="ele" then movecolor3=ele end
+ if movecolor3=="ice" then movecolor3=ice end
+ if movecolor3=="fig" then movecolor3=fig end
+ if movecolor3=="poi" then movecolor3=poi end
+ if movecolor3=="gro" then movecolor3=gro end
+ if movecolor3=="fly" then movecolor3=fly end
+ if movecolor3=="psy" then movecolor3=psy end
+ if movecolor3=="bug" then movecolor3=bug end
+ if movecolor3=="roc" then movecolor3=roc end
+ if movecolor3=="gho" then movecolor3=gho end
+ if movecolor3=="dra" then movecolor3=dra end
+ if movecolor3=="dar" then movecolor3=dar end
+ if movecolor3=="ste" then movecolor3=ste end
+ movecolor4=colortbl[move4]
+ if movecolor4=="nor" then movecolor4=nor end
+ if movecolor4=="fire" then movecolor4=fire end
+ if movecolor4=="wat" then movecolor4=wat end
+ if movecolor4=="gra" then movecolor4=gra end
+ if movecolor4=="ele" then movecolor4=ele end
+ if movecolor4=="ice" then movecolor4=ice end
+ if movecolor4=="fig" then movecolor4=fig end
+ if movecolor4=="poi" then movecolor4=poi end
+ if movecolor4=="gro" then movecolor4=gro end
+ if movecolor4=="fly" then movecolor4=fly end
+ if movecolor4=="psy" then movecolor4=psy end
+ if movecolor4=="bug" then movecolor4=bug end
+ if movecolor4=="roc" then movecolor4=roc end
+ if movecolor4=="gho" then movecolor4=gho end
+ if movecolor4=="dra" then movecolor4=dra end
+ if movecolor4=="dar" then movecolor4=dar end
+ if movecolor4=="ste" then movecolor4=ste end	
+
+ gui.text(xfix2-65, yfix2, "1: "..movename1, movecolor1)
+ gui.text(xfix2+35, yfix2, "2: "..movename2, movecolor2)
+ gui.text(xfix2-65, yfix2+10, "3: "..movename3, movecolor3)
+ gui.text(xfix2+35, yfix2+10, "4: "..movename4, movecolor4)
+ 
+ gui.text(xfix2+0, yfix2, "PP: "..pp1)
+ gui.text(xfix2+100, yfix2, "PP: "..pp2)
+ gui.text(xfix2+0, yfix2+10, "PP: "..pp3)
+ gui.text(xfix2+100, yfix2+10, "PP: "..pp4)
+ gui.text(xfix2+0, yfix2+20,"Power: "..typeorder[hidpowtype+1].." "..hidpowbase)
+
+	if holditemname=="none" then
+ gui.text(xfix2+0, yfix2+30,"Item : "..holditemname)
+	else 
+ gui.text(xfix2+0, yfix2+30,"Item : "..holditemname, "yellow")
+	end
+ 
+ gui.text(xfix2+85, yfix2+20,"Pokerus"..pokerus)
+
+--gui.text(xfix2, yfix2+70, "Pokerus remain "..mbyte(start+85))
  
  
  if status==3 then
