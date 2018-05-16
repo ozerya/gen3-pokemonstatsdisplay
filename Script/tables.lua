@@ -173,7 +173,7 @@ movetbl={   "Pound", "Karate Chop", "DoubleSlap", "Comet Punch", "Mega Punch", "
 			"Water Sport", "Calm Mind", "Leaf Blade", "Dragon Dance", "Rock Blast",
 			"Shock Wave", "Water Pulse", "Doom Desire", "Psycho Boost"}
 
---Color list
+--Color list (for Move)
 
 colortbl={   "nor", "fig", "nor", "nor", "nor", "nor", "fire", "ice", "ele", "nor", "nor", "nor", "nor", "nor", "nor", "fly", "fly", "nor", "fly",
 	"nor", "nor", "gra", "nor", "fig", "nor", "fig", "fig", "gro", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "nor", "poi", "bug",
@@ -247,3 +247,13 @@ itemtbl={   "Master Ball","Ultra Ball", "Great Ball", "Poké Ball", "Safari Ball
 			"Rainbow Pass", "Tea", "MysticTicket", "AuroraTicket", "Powder Jar", "Ruby", "Sapphire", 
 			"Magma Emblem", "Old Sea Map"}
 	
+--Ability list
+
+AbAbilitytbl = {	"Stench", "Drizzle", "Speed Boost", "Battle Armor", "Sturdy", "Damp", "Limber", "Sand Veil", "Static", "Volt Absorb",
+			"Water Absorb", "Oblivious", "Cloud Nine", "Compound Eyes", "Insomnia", "Color Change", "Immunity", "Flash Fire", "Shield Dust",
+			"Own Tempo", "Suction Cups", "Intimidate", "Shadow Tag", "Rough Skin", "Wonder Guard", "Levitate", "Effect Spore", "Synchronize",
+			"Clear Body", "Natural Cure", "Lightning Rod", "Serene Grace", "Swift Swim", "Chlorophyll", "Illuminate", "Trace", "Huge Power",
+			"Poison Point", "Inner Focus", "Magma Armor", "Water Veil", "Magnet Pull", "Soundproof", "Rain Dish", "Sand Stream", "Pressure",
+			"Thick Fat", "Early Bird", "Flame Body", "Run Away", "Keen Eye", "Hyper Cutter", "Pickup", "Truant", "Hustle", "Cute Charm",
+			"Plus", "Minus", "Forecast", "Sticky Hold", "Shed Skin", "Guts", "Marvel Scale", "Liquid Ooze", "Overgrow", "Blaze", "Torrent", "Swarm",
+			"Rock Head", "Drought", "Arena Trap", "Vital Spirit", "White Smoke", "Pure Power", "Shell Armor", "Air Lock", "Cacophony"}
